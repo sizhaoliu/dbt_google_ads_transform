@@ -24,6 +24,14 @@ clean-targets:         # directories to be removed by `dbt clean`
     - "target"
     - "dbt_modules"
 
+vars:
+  google_adgroup_perf_source: "INCUBATION.DBT_GOOGLE_ADS.ADGROUP_PERFORMANCE_REPORT"
+  bing_adgroup_perf_source:   "INCUBATION.DBT_BING_ADS.AD_GROUP_PERFORMANCE_REPORT"
+  sfdc_lead_source:        "INCUBATION.DBT_SFDC.LEAD"
+  sfdc_account_source:     "INCUBATION.DBT_SFDC.ACCOUNT"
+  sfdc_contact_source:     "INCUBATION.DBT_SFDC.CONTACT"
+  sfdc_opportunity_source: "INCUBATION.DBT_SFDC.OPPORTUNITY"
+
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
@@ -35,7 +43,7 @@ models:
   dbt_google_ads_transform:
       paid_ads:
           materialized: view
-      salesforce:
+      sfdc:
           materialized: view
       analytical:
           materialized: view
