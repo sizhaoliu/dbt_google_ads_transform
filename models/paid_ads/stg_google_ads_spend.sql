@@ -1,7 +1,7 @@
 with add_row_num as (
     select *
     ,row_number() over (partition by campaignid, adgroupid, DAY,clicks order by _sdc_sequence desc) as row_num 
-    FROM INCUBATION.DBT_GOOGLE_ADS.ADGROUP_PERFORMANCE_REPORT)
+    FROM {{ var('google_adgroup_perf_source') }})
 ,
 
 final as (
