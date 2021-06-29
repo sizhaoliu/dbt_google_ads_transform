@@ -38,15 +38,8 @@ with data_clean as (
 final as (
   select 
       id AS lead_id,
-      case when  mql_last_date IS NOT NULL  
-          then 1 else 0 end as became_mql
-      ,case when   regexp_like(lead_status, '5a. Qualified.*','i')
-          AND not regexp_like(lead_status, 'partner.*','i')
-          AND not regexp_like(lead_status, 'Media/Analyst.*','i')
-          AND not regexp_like(lead_status, 'Professor.*','i')
-          AND not regexp_like(lead_status, 'Student.*','i')
-          and NOT regexp_like(country, 'india.*','i')
-          then 1 else 0 end as became_SAL
+      {{ is_sfdc_mql_lead(mql_last_date) }} as became_mql
+      ,{{ is_sql_lead(lead_status, country )}} as became_SAL
       ,DATE_PART(week , date ) as lead_created_week
       ,case when regexp_like(campaign,'(stitch)') then 'stitch' else 'talend' end as ACCOUNT
       ,*
