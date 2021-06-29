@@ -13,8 +13,12 @@ WITH op_data AS
 ),
 
 aggregated as (
-    select 
+    select         
+     {% if var('use_hashed_email')  %}
+        md5(op_data.email)
+     {% else %}
         op_data.email
+     {% endif %} as email
         ,count(DISTINCT op_data.email) number_opportunities
         ,count(distinct op_data.ACCOUNTID) as number_accounts
         ,case when sum(op_data.ISWON) >= 1 then 1 else 0 end as closed_won
