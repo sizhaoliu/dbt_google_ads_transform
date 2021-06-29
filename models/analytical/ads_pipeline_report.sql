@@ -24,7 +24,7 @@ final as(
         ,sum(pipeline_generated) as pipeline_generated
         ,sum(pipeline_won) as pipeline_won
     from union_data
-    where date >='2018-01-01'
+    where date >= '{{ var('start_date') }}'
     group by 1,2,3,4,5,6,7--,8
 )
 

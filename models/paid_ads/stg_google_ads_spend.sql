@@ -8,12 +8,7 @@ final as (
     select 
         to_date(DAY) as date
         ,date_part('MONTH',day)  as month
-        ,case when account = 'Talend NORAM' then 'talend noram' 
-            when account = 'Talend UK RoEMEA APAC' then 'talend emea' 
-            when account = 'Talend APAC' then 'talend apac'   
-            when account = 'Stitch' then 'stitch'  
-            when account = 'Talend Japan' then 'talend japan'  
-            else 'na' end as account
+        ,{{ map_google_ads_account_name() }} as account
         ,'google' as platform 
         ,lower(campaign) as campaign
         ,campaignid as campaign_id
@@ -25,7 +20,7 @@ final as (
     from add_row_num 
     where 
         row_num = 1 and 
-            day >='2017-12-31'
+            day >= '{{ var('start_date') }}'
     group by 1,2,3,4,5,6,7,8
 )
 

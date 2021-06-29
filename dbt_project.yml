@@ -31,20 +31,21 @@ vars:
   sfdc_account_source:     "INCUBATION.DBT_SFDC.ACCOUNT"
   sfdc_contact_source:     "INCUBATION.DBT_SFDC.CONTACT"
   sfdc_opportunity_source: "INCUBATION.DBT_SFDC.OPPORTUNITY"
+  start_date: '2018-01-01'
 
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
-vars:
-  etl:                            stitch #stitch or fivetran
-  criteria_performance_report:    "dbt_google_ads.criteria_performance_report" #"schema.table"
-  click_performance_report:       "dbt_google_ads.click_performance_report" #"schema.table"
-  final_url_performance_report:   "dbt_google_ads.final_url_report" #"schema.table"
-  ads_table:                      "dbt_google_ads.ads" #"schema.table" (only for stitch)
-  ad_groups_table:                "dbt_google_ads.ad_group" #"schema.table" (only for stitch)
-  accounts_table:                 "dbt_google_ads.accounts" #"schema.table" (only for stitch)
-  campaigns_table:                "dbt_google_ads.campaigns" #"schema.table" (only for stitch)
-  adapter_value:                  criteria #url or criteria
+#vars:
+#  etl:                            stitch #stitch or fivetran
+#  criteria_performance_report:    "dbt_google_ads.criteria_performance_report" #"schema.table"
+#  click_performance_report:       "dbt_google_ads.click_performance_report" #"schema.table"
+#  final_url_performance_report:   "dbt_google_ads.final_url_report" #"schema.table"
+#  ads_table:                      "dbt_google_ads.ads" #"schema.table" (only for stitch)
+#  ad_groups_table:                "dbt_google_ads.ad_group" #"schema.table" (only for stitch)
+#  accounts_table:                 "dbt_google_ads.accounts" #"schema.table" (only for stitch)
+#  campaigns_table:                "dbt_google_ads.campaigns" #"schema.table" (only for stitch)
+#  adapter_value:                  criteria #url or criteria
 
 # In this example config, we tell dbt to build all models in the example/ directory
 # as tables. These settings can be overridden in the individual model files

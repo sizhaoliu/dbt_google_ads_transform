@@ -1,3 +1,4 @@
+
 with add_row_num as (select *
 ,row_number() over (partition by campaignid, adgroupid, timeperiod order by _sdc_sequence desc) as row_num 
 FROM {{ var('bing_adgroup_perf_source') }} ) 
@@ -9,10 +10,7 @@ final as (
         ,date_part('MONTH',timeperiod)  as month
         --extract(date from timeperiod) as date
         --,cast(datetime_trunc(cast(timeperiod as datetime), month) as date) as month
-        ,case when accountid = 3279498 then 'talend noram'
-            when accountid = 141239038 then 'talend emea'
-            when accountid = 141239048 then 'talend apac'
-            else 'other' end as account
+        ,{{ map_bing_ads_account_id_to_name() }} as account
         ,'bing' as platform 
         ,lower(campaignname) as campaign
         ,campaignid as campaign_id
@@ -23,7 +21,7 @@ final as (
         ,sum(impressions) as impressions
     from add_row_num 
     where row_num = 1
-    and timeperiod >='2018-01-01'
+    and timeperiod >= '{{ var('start_date') }}'
     group by 1,2,3,4,5,6,7,8
 )
 
