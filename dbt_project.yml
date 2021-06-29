@@ -32,6 +32,7 @@ vars:
   sfdc_contact_source:     "INCUBATION.DBT_SFDC.CONTACT"
   sfdc_opportunity_source: "INCUBATION.DBT_SFDC.OPPORTUNITY"
   start_date: '2018-01-01'
+  use_hashed_email: true 
 
 
 # Configuring models

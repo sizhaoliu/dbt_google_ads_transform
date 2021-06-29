@@ -2,7 +2,11 @@ with data_clean as (
   select  
     id
     ,date(CREATEDDATE) as date 
-    ,email
+    ,{% if var('use_hashed_email')  %}
+        md5(email)
+     {% else %}
+        email
+     {% endif %} as email
     , date(X1_INQUIRY_DATE__C) as inquiry_date
     , date(X2_READY_FOR_REVIEW_DATE__C) as ready_for_review_date
     , date(X3_WORKING_DATE__C) as working_date
