@@ -12,7 +12,7 @@ final as(
         ,platform
         ,campaign
         ,ad_group
-        ,'na' as theatre
+        ,region
         ,sum(impressions) as impressions
         ,sum(clicks) as clicks
         ,sum(spend) as spend
@@ -24,8 +24,8 @@ final as(
         ,sum(pipeline_generated) as pipeline_generated
         ,sum(pipeline_won) as pipeline_won
     from union_data
-    where date >= '{{ var('start_date') }}'
-    group by 1,2,3,4,5,6,7--,8
+    where date >= '{{ var('start_date', '2018-01-01') }}'
+    group by 1,2,3,4,5,6,7,8
 )
 
 select * from final

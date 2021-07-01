@@ -31,8 +31,8 @@ vars:
   sfdc_account_source:     "INCUBATION.DBT_SFDC.ACCOUNT"
   sfdc_contact_source:     "INCUBATION.DBT_SFDC.CONTACT"
   sfdc_opportunity_source: "INCUBATION.DBT_SFDC.OPPORTUNITY"
-  start_date: '2018-01-01'
-  use_hashed_email: true 
+  start_date: '2019-01-01' # optional, default to '2018-01-01' if not present
+  use_hashed_email: true   # optional, default to 'false' if not present
 
 
 # Configuring models

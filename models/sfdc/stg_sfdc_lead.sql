@@ -2,7 +2,7 @@ with data_clean as (
   select  
     id
     ,date(CREATEDDATE) as date 
-    ,{% if var('use_hashed_email')  %}
+    ,{% if var('use_hashed_email', false)  %}
         md5(email)
      {% else %}
         email
