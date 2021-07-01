@@ -21,7 +21,7 @@ final as (
         ,sum(impressions) as impressions
     from add_row_num 
     where row_num = 1
-    and timeperiod >= '{{ var('start_date') }}'
+    and timeperiod >= '{{ var('start_date', '2018-01-01') }}'
     group by 1,2,3,4,5,6,7,8
 )
 

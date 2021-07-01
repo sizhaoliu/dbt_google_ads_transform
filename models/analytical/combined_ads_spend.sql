@@ -10,6 +10,7 @@ spend AS (
         ,PLATFORM 
         ,CAMPAIGN 
         ,AD_GROUP 
+        ,'AdsSpend' as region
         ,SUM(IMPRESSIONS) IMPRESSIONS
         ,SUM(CLICKS) CLICKS
         ,SUM(SPEND) SPEND
