@@ -39,7 +39,7 @@ final as (
   select 
       id AS lead_id,
       {{ is_sfdc_mql_lead(mql_last_date) }} as became_mql
-      ,{{ is_sql_lead(lead_status, country )}} as became_SAL
+      ,{{ is_sal_lead(lead_status, country )}} as became_sal
       ,DATE_PART(week , date ) as lead_created_week
       ,case when regexp_like(campaign,'(stitch)') then 'stitch' else 'talend' end as ACCOUNT
       ,*
