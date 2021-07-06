@@ -6,7 +6,9 @@ WITH salesforce_leads_join_opportunities AS
         o.PIPELINE_GENERATED,
         o.PIPELINE_WON,
         o.region,
-        o.currency
+        o.currency,
+        o.pipeline_generated_usd,
+        o.pipeline_won_usd
     FROM  {{ ref('stg_sfdc_lead') }} l
     LEFT JOIN  {{ ref('stg_sfdc_opptty') }} o ON o.EMAIL=l.EMAIL
 ),
@@ -29,7 +31,9 @@ leads_and_oppttys AS
         ,sum(NUMBER_OPPORTUNITIES) as became_opportunity
         ,sum(CLOSED_WON) as became_closed_won
         ,sum(PIPELINE_GENERATED) as pipeline_generated
+        ,sum(PIPELINE_GENERATED_USD) as pipeline_generated_usd
         ,sum(PIPELINE_WON) as pipeline_won
+        ,sum(PIPELINE_WON_USD) as pipeline_won_usd
     from salesforce_leads_join_opportunities
     group by 1,2,3,4,5,6
 )
