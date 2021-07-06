@@ -20,7 +20,9 @@ spend AS (
         ,0 as BECAME_OPPORTUNITY
         ,0 as BECAME_CLOSED_WON
         ,0 as PIPELINE_GENERATED
+        ,0 as PIPELINE_GENERATED_USD
         ,0 as PIPELINE_WON
+        ,0 as PIPELINE_WON_USD
     FROM COMBINED_SPEND
     group by 1,2,3,4,5)
 

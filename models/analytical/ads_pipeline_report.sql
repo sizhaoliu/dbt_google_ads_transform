@@ -22,7 +22,9 @@ final as(
         ,sum(became_opportunity) as became_opportunity
         ,sum(became_closed_won) as became_closed_won
         ,sum(pipeline_generated) as pipeline_generated
+        ,sum(pipeline_generated_usd) as pipeline_generated_usd
         ,sum(pipeline_won) as pipeline_won
+        ,sum(pipeline_won_usd) as pipeline_won_usd
     from union_data
     where date >= '{{ var('start_date', '2018-01-01') }}'
     group by 1,2,3,4,5,6,7,8
