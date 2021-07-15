@@ -7,10 +7,11 @@ with data_clean as (
      {% else %}
         email
      {% endif %} as email
+    , gclid__c as gclid
     , date(X1_INQUIRY_DATE__C) as inquiry_date
     , date(X2_READY_FOR_REVIEW_DATE__C) as ready_for_review_date
     , date(X3_WORKING_DATE__C) as working_date
-    , date(LEAD_QUALIFICATION_DATE__C) as qualifying_date
+    --  , date(LEAD_QUALIFICATION_DATE__C) as qualifying_date
     --  ,extract(date from lattice_timestamp) as lattice_timestamp_date
     ,LEAD__C
     ,lower(CAMPAIGN_SOURCE__C) platform
