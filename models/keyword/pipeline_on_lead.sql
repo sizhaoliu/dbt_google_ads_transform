@@ -9,8 +9,8 @@ WITH salesforce_leads_join_opportunities AS
         o.currency,
         o.pipeline_generated_usd,
         o.pipeline_won_usd
-    FROM  {{ ref('stg_sfdc_opptty') }} l
-    INNER JOIN  {{ ref('stg_sfdc_lead') }} o ON o.EMAIL=l.EMAIL
+    FROM  {{ ref('stg_sfdc_opptty') }} o
+    INNER JOIN  {{ ref('stg_sfdc_lead') }} l ON o.EMAIL=l.EMAIL
 )
 
 select * from salesforce_leads_join_opportunities
