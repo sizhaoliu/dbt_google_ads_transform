@@ -26,6 +26,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 vars:
   google_adgroup_perf_source: "INCUBATION.DBT_GOOGLE_ADS.ADGROUP_PERFORMANCE_REPORT"
+  google_click_perf_source: "INCUBATION.DBT_GOOGLE_ADS.CLICK_PERFORMANCE_REPORT"
   bing_adgroup_perf_source:   "INCUBATION.DBT_BING_ADS.AD_GROUP_PERFORMANCE_REPORT"
   sfdc_lead_source:        "INCUBATION.DBT_SFDC.LEAD"
   sfdc_account_source:     "INCUBATION.DBT_SFDC.ACCOUNT"
@@ -33,7 +34,7 @@ vars:
   sfdc_opportunity_source: "INCUBATION.DBT_SFDC.OPPORTUNITY"
   exchange_rates_source:   "INCUBATION.DBT_SFDC.CURRENCYTYPE"
   start_date: '2018-01-01' # optional, default to '2018-01-01' if not present
-  use_hashed_email: true   # optional, default to 'false' if not present
+  use_hashed_email: false   # optional, default to 'false' if not present
 
 
 # Configuring models
