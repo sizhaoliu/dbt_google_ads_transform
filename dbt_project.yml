@@ -26,6 +26,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 vars:
   google_adgroup_perf_source: "INCUBATION.DBT_GOOGLE_ADS.ADGROUP_PERFORMANCE_REPORT"
+  google_ad_perf_source: "INCUBATION.DBT_GOOGLE_ADS.AD_PERFORMANCE_REPORT"
   google_click_perf_source: "INCUBATION.DBT_GOOGLE_ADS.CLICK_PERFORMANCE_REPORT"
   bing_adgroup_perf_source:   "INCUBATION.DBT_BING_ADS.AD_GROUP_PERFORMANCE_REPORT"
   sfdc_lead_source:        "INCUBATION.DBT_SFDC.LEAD"
