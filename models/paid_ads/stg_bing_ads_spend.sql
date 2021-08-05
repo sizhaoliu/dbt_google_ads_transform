@@ -1,7 +1,7 @@
 
 with add_row_num as (select *
 ,row_number() over (partition by campaignid, adgroupid, timeperiod order by _sdc_sequence desc) as row_num 
-FROM {{ var('bing_adgroup_perf_source') }} ) 
+FROM {{ var('database_name') }}."DBT_BING_ADS"."AD_GROUP_PERFORMANCE_REPORT"
 ,
 
 final as (

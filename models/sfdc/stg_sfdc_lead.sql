@@ -32,7 +32,7 @@ with data_clean as (
     ,MQL_DATE_TIME_LAST__C AS mql_last_date
     -- add row number function to remove duplicate email addresses (there are only a handful of these but they will impact the joining of salesforce opportunities by duplicating the opptys data)
     ,row_number() over (partition by email order by CREATEDDATE desc) as row_num
-   from {{ var('sfdc_lead_source') }} 
+   from {{ var('database_name') }}.{{ var('source_schema_sfdc') }}."LEAD"
    where lower(CAMPAIGN_SOURCE__C) in ('google','bing') 
  ),
 
