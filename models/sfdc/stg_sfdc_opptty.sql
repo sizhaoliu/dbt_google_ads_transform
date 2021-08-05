@@ -11,10 +11,10 @@ WITH op_data AS
         op.Opportunity_Currency__c AS currency,
         er.CONVERSIONRATE AS exchange_rate
     FROM 
-        {{ var('sfdc_opportunity_source') }} op
-        JOIN {{ var('sfdc_account_source') }} ac ON op.ACCOUNTID=ac.ACCOUNT_ID_LONG__C
-        JOIN {{ var('sfdc_contact_source') }} cc ON cc.ACCOUNTID =ac.ACCOUNT_ID_LONG__C
-        JOIN {{ var('exchange_rates_source') }} er ON op.Opportunity_Currency__c = er.isocode
+        {{ var('database_name') }}.{{ var('source_schema_sfdc') }}."OPPORTUNITY" op
+        JOIN {{ var('database_name') }}.{{ var('source_schema_sfdc') }}."ACCOUNT" ac ON op.ACCOUNTID=ac.ACCOUNT_ID_LONG__C
+        JOIN {{ var('database_name') }}.{{ var('source_schema_sfdc') }}."CONTACT" cc ON cc.ACCOUNTID =ac.ACCOUNT_ID_LONG__C
+        JOIN {{ var('database_name') }}.{{ var('source_schema_sfdc') }}."CURRENCYTYPE" er ON op.Opportunity_Currency__c = er.isocode
 ),
 
 aggregated as (
