@@ -25,12 +25,11 @@ clean-targets:         # directories to be removed by `dbt clean`
     - "dbt_modules"
 
 vars:
-  database_name:           "INCUBATION"
-  source_schema_ads:       "DBT_GOOGLE_ADS"
-  source_schema_sfdc:      "DBT_SFDC"
-  target_schema:           "DBT_ROAS_TRANSFORM"
-  start_date: '2018-01-01' # optional, default to '2018-01-01' if not present
-  use_hashed_email: false   # optional, default to 'false' if not present
+  database_name:           "INCUBATION"         # Database name
+  source_schema_ads:       "DBT_GOOGLE_ADS"     # Source schema of the Paid Ads
+  source_schema_sfdc:      "DBT_SFDC"           # Source Schema of Salesforce
+  start_date:              '2018-01-01'         # Start date to filter the Ads/Salesforce data
+  use_hashed_email:        false                # Hash the email in result tables/views
 
 
 # Configuring models
