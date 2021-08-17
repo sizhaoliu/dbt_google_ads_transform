@@ -1,7 +1,7 @@
 with add_row_num as (
     select *
     ,row_number() over (partition by campaignid, adgroupid, adid, DAY,clicks order by _sdc_sequence desc) as row_num 
-    FROM {{ var('database_name') }}.{{ var('source_schema_ads') }}."AD_PERFORMANCE_REPORT" 
+    FROM {{ var('database_name') }}.{{ var('source_schema_google_ads') }}."AD_PERFORMANCE_REPORT" 
 ),
 
 final as (
