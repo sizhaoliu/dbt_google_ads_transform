@@ -9,8 +9,8 @@ WITH salesforce_leads_join_opportunities AS
         o.currency,
         o.pipeline_generated_usd,
         o.pipeline_won_usd
-    FROM  {{ ref('stg_sfdc_lead') }} l
-    LEFT JOIN  {{ ref('stg_sfdc_opptty') }} o ON o.EMAIL=l.EMAIL
+    FROM  {{ ref('sfdc_lead') }} l
+    LEFT JOIN  {{ ref('sfdc_opportunity') }} o ON o.EMAIL=l.EMAIL
 ),
 
 leads_and_oppttys AS 

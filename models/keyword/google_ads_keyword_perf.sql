@@ -4,4 +4,4 @@ select keyword
   , sum(clicks) as clicks
   , sum(impressions) as impressions
 from  {{ var('database_name') }}.{{ var('source_schema_google_ads') }}."KEYWORDS_PERFORMANCE_REPORT"
-group by 1;
+group by 1

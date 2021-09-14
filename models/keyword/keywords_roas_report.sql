@@ -1,5 +1,5 @@
 
-pipeline_on_lead as (
+with pipeline_on_lead as (
   select term, sum(pipeline_generated_usd) as pipeline_generated_usd, sum(pipeline_won_usd) as pipeline_won_usd from {{ ref('pipeline_on_lead') }}
   group by 1
 )
