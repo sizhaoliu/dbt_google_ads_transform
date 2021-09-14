@@ -7,5 +7,5 @@ with click_perf as
 )
 
 select l.lead_id, l.email, cp.*
-from click_perf cp INNER JOIN  {{ ref('stg_sfdc_lead') }} l ON cp.googleclickid = l.gclid
+from click_perf cp INNER JOIN  {{ ref('sfdc_lead') }} l ON cp.googleclickid = l.gclid
 order by email
